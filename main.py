@@ -30,9 +30,6 @@ class Student:
                 count += 1
         return k / count
 
-
-
-
     def __lt__(self, other):
         return self.aver_grade() < other.aver_grade()
     def __str__(self):
