@@ -26,7 +26,8 @@ class Student:
                 k += j
                 count += 1
         return k / count
-
+    def __lt__(self, other):
+        return self.aver_grade() < other.aver_grade()
     def __str__(self):
         return f"{self.name}\n{self.surname}\n{self.aver_grade()}\n{' '.join(self.courses_in_progress)}\nЗавершенный курс: {' '.join(self.finished_courses)}"
 
@@ -49,6 +50,9 @@ class Lecturer(Mentor):
                 count += 1
                 total = k / count
         return round(total, 2)
+
+    def __lt__(self, other):
+        return self.aver_rating() < other.aver_rating()
     def __str__(self):
         return f"{self.name}\n{self.surname}\n{self.aver_rating()}"
 
@@ -93,5 +97,7 @@ mentor_reviewer_2.rate_hw(roma_student, "GIT", 5)
 mentor_reviewer_1.rate_hw(miha_student, "Python", 3)
 #print(mentor_lecturer_2)
 # print(mentor_lecturer_1)
-# print(roma_student)
-# print(miha_student)
+#print(roma_student)
+#print(miha_student)
+#print(miha_student < roma_student)
+print(mentor_lecturer_1 < mentor_lecturer_2)
